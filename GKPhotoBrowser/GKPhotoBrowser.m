@@ -391,7 +391,7 @@ static Class imageManagerClass = nil;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationLandscapeRight;
 }
 
 #pragma mark - 状态栏
@@ -437,7 +437,7 @@ static Class imageManagerClass = nil;
         photo.sourceImageView.alpha = 1.0;
     }
     
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
     
     [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -496,13 +496,13 @@ static Class imageManagerClass = nil;
     if (self.isSingleTapDisabled) return;
     
     // 状态栏恢复到竖屏
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
     
     if (self.showStyle == GKPhotoBrowserShowStylePush) {
         [self.navigationController popViewControllerAnimated:YES];
     }else {
         // 显示状态栏
-        self.isStatusBarShow = YES;
+        self.isStatusBarShow = NO;
         
         // 防止返回时跳动
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
